@@ -1,64 +1,59 @@
 package Models;
 
-//atributos da classe
 public class Carro {
-    String modelo;
-    String cor;
-    String ano;
-    Integer serie;
-    Integer capacidadeTanque;
 
-    //construtor vazio
-    public Carro(){
+    //inicializador do ID
+    private static int contador = 1;
 
+    private int codigo;
+    private String nome;
+    private Double preco;
+
+    public Carro() {
     }
 
-    //construtor padrão
-    public Carro(String modelo, String cor, String ano, Integer serie, Integer capacidadeTanque) {
-        this.modelo = modelo;
-        this.cor = cor;
-        this.ano = ano;
-        this.serie = serie;
-        this.capacidadeTanque = capacidadeTanque;
+    public Carro(String nome, Double preco) {
+        this.codigo = Carro.contador;
+        this.nome = nome;
+        this.preco = preco;
+        Carro.contador += 1;
     }
 
-    public String getModelo() {
-        return modelo;
+    public static int getContador() {
+        return contador;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public static void setContador(int contador) {
+        Carro.contador = contador;
     }
 
-    public String getCor() {
-        return cor;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCor(String cor) {
-        this.cor = cor;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public String getAno() {
-        return ano;
+    public String getNome() {
+        return nome;
     }
 
-    public void setAno(String ano) {
-        this.ano = ano;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Integer getSerie() {
-        return serie;
+    public Double getPreco() {
+        return preco;
     }
 
-    public void setSerie(Integer serie) {
-        this.serie = serie;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
-    public Integer getCapacidadeTanque() {
-        return capacidadeTanque;
-    }
-
-    public void setCapacidadeTanque(Integer capacidadeTanque) {
-        this.capacidadeTanque = capacidadeTanque;
+    public String toString() {
+        return "codigo=" + this.getCodigo() +
+                ", nome='" + this.getNome() + '\'' +
+                ", preco=" + this.getPreco();
     }
 }
